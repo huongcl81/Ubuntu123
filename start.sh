@@ -11,7 +11,7 @@ qemu-img convert -f qcow2 -O raw "$IMG" "$DISK"
 qemu-img resize "$DISK" 30G
 # Start VM
 qemu-system-x86_64 \
-    -m "$RAM"G \
+    -m 8G \
     -drive file="$DISK",format=raw,if=virtio \
     -drive file="$SEED",format=raw,if=virtio \
     -netdev user,id=net0,hostfwd=tcp::2222-:22 \
